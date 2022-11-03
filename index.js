@@ -1,20 +1,32 @@
-const numNames = prompt("How many people are doing Kris Kringle");
+//const numNames = prompt("How many people are doing Kris Kringle");
 
+const names = ["Wendy", "Mike", "Tony", "Kat", "Andy"];
 
+// while (names.length < numNames) {
+//   const name = prompt("Enter a name");
+//   names.push(name);
+// }
 
-const names[];
+//gererate random number
 
-while (names.length < numNames.length - 1) {
+const hat = [...names];
 
-names.push(prompt(`Name ${names.length + 1}`));
+console.log(hat);
 
+const draw = new Map();
+
+const recipients = [];
+for (let i = 0; i < names.length; i++) {
+  let randomNum = Math.floor(Math.random() * hat.length);
+  console.log(`rand: ${randomNum}`);
+  while (hat[randomNum] === names[i]) {
+    randomNum = Math.floor(Math.random() * hat.length);
+    console.log(`rand: ${randomNum}`);
+  }
+  recipients.push(hat[randomNum]);
+  console.log(`recipients: ${recipients[i]}`);
+  hat.splice(randomNum, 1);
+  draw.set(names[i], recipients[i]);
 }
 
-let draw = {
-
-    [
-        name: names[0],
-        recipient: ""
-    ]
-
-};
+console.log(draw);
